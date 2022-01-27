@@ -49,7 +49,7 @@ function showGameOver() {
     currentWord.setAttribute('class', '');
     inputText.value = '';
     //show score
-    let wordsPerMinute = Math.round(userScore/15)*100;
+    let wordsPerMinute = Math.round((userScore/0.5)/5)*3;
     scoreWPM.textContent = wordsPerMinute + ' WPM';
     
     scoreContainer.style.display = 'block';
