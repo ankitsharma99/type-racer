@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Test Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section id="timer-text">
+        1:00
+    </section>
+
+    <section id="test-box">
+        <!-- this div acts as the container for the typing area -->
+        <div id="test-box-text">
+            <% wStore.forEach(word => { %> 
+                <span><%-word %> </span> 
+            <% }); %>
+        </div>
+    </section>
+
+    <form>
+        <input onkeyup="inputType(this)" type="text" id="write-box">
+    </form>
+
+    <section id="score">
+        <p>Your speed:</p>
+        <p id="score-wpm">99WPM</p>
+    </section>
+
+
+    <script src="textBox.js"></script>
+    <script src="timer.js"></script>
+</body>
+</html>
