@@ -36,7 +36,7 @@ app.get('/', (req, res, next) => {
     let sql = `SELECT word FROM words`;
     db.query(sql, (err, result) => {
         if(err) throw err;
-        console.log(result);
+        // console.log(result);
         let wordStore = sortWords(result);
         //now render the pug file
         res.render('index', {wStore: wordStore});
