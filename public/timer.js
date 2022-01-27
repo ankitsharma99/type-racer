@@ -1,10 +1,18 @@
 let timerText = document.getElementById('timer-text');
 let gameStart = false;
+//set inputtext to blank on page refresh
+inputText.value = '';
+//score when game ends
+let scoreContainer = document.getElementById('score');
+let scoreWPM = document.getElementById('score-wpm');
+
+
+
 
 function inputType(input) {
     let textInput = input.value;
     if(!gameStart) {
-        startTimer(60, timerText);
+        startTimer(15, timerText);
         gameStart = true;
     }
 }
@@ -27,6 +35,30 @@ function startTimer(duration, ele) {
         if(timer < 0) {
             clearInterval(tick);
             ele.textContent = 'END';
+            //show game over score
+            showGameOver();
         }
     }, 1000);
+}
+
+
+function showGameOver() {
+    //user can not type into the input now
+    inputText.disabled = true;
+    let currentWord = document.querySelector(`#test-box-text span:nth-child(${currentWordNumber})`);
+    currentWord.setAttribute('class', '');
+    inputText.value = '';
+    //show score
+    let wordsPerMinute = Math.round(userScore/60)*100;
+    scoreWPM.textContent = wordsPerMinute + ' WPM';
+    scoreContainer.style.display = 'block';
+}
+
+//on focus is useful for testbox file
+function onFocus() {
+    isFocus = true;
+}
+
+function onBlur() {
+    isFocus = false;    
 }
