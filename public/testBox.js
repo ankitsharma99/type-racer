@@ -45,6 +45,7 @@ function shouldUserScore(userInput, prevWord) {
     if(userInput === textValue) {
         prevWord.style.color = 'green';
         userScore++;
+        console.log(userScore);
     }
     else {
         prevWord.style.color = 'red';
